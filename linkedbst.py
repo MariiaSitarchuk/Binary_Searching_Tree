@@ -331,14 +331,6 @@ class LinkedBST(AbstractCollection):
 
         return recurse(item, self._root)
 
-        # tree_list = list(self.inorder())
-        # item_index = tree_list.index(item)
-
-        # if item_index == len(tree_list) - 1:
-        #     return None
-        # else:
-        #     return tree_list[item_index + 1]
-
     def predecessor(self, item):
         """
         Returns the largest item that is smaller than
@@ -367,14 +359,6 @@ class LinkedBST(AbstractCollection):
                 return root.data
 
         return recurse(item, self._root)
-
-        # tree_list = list(self.inorder())
-        # item_index = tree_list.index(item)
-
-        # if item_index == 0:
-        #     return None
-        # else:
-        #     return tree_list[item_index - 1]
 
     def demo_bst(self, path):
         """
@@ -412,8 +396,11 @@ class LinkedBST(AbstractCollection):
         random_list = []
         that_list_copy = all_words_list.copy()
 
-        # change to 10.000!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        while len(random_list) < 200:
+        # now it's 10000 - for words.txt
+        # you can change it for example:
+        # to 200 - for max_recursion.txt
+        # to 7 - for some_text.txt
+        while len(random_list) < 10000:
             value = random.choice(that_list_copy)
             index_v = that_list_copy.index(value)
             that_list_copy.pop(index_v)
@@ -611,15 +598,3 @@ class LinkedBST(AbstractCollection):
                     return right_kid + left_kid
 
         return recurse(balance_tree._root, ran_lst)
-
-
-# to use method demo_bst (specially method second_time()) with words.txt, please change your recursion limit to 234937.
-# funny fact in this vocabulary 1000 word have not even reach 'ad.....'
-
-
-testing = LinkedBST([5, 3, 8, 6, 2, 4, 1])
-
-# print(testing)
-
-testing.demo_bst('max_recursion.txt')
-# print(this_time)
